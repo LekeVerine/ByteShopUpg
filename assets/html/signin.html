@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../css/signin.css" />
+  <title>Sign-in</title>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Coluna esquerda: login + suporte -->
+    <div class="login-column">
+      <div class="login-card card">
+        <h1>Entrar</h1>
+
+        <div id="msgError"></div>
+
+        <div class="label-float">
+          <input type="text" id="usuario" placeholder="" required />
+          <label id="userLabel" for="usuario">Usuário ou Email</label>
+        </div>
+
+        <div class="label-float">
+          <input type="password" id="senha" placeholder="" required />
+          <label id="senhaLabel" for="senha">Senha</label>
+          <i class="fa fa-eye" aria-hidden="true"></i>
+        </div>
+
+        <p class="forgot-link">
+          <a href="forgot.html">Esqueceu a senha?</a>
+        </p>
+
+        <div class="justify-center">
+          <button onclick="entrar()">Entrar</button>
+        </div>
+
+        <div class="justify-center">
+          <hr />
+        </div>
+
+        <p>
+          Não tem uma conta?  
+          <a href="../html/signup.html">Cadastre-se</a>
+        </p>
+      </div>
+
+      <div class="support-card">
+        Suporte: byteshopscrum@gmail.com <br>
+        Telefone: 9999-0000
+      </div>
+    </div>
+
+    <!-- Coluna direita: introdução + carrossel -->
+    <div class="info-card card">
+      <!-- Introdução -->
+      <div class="intro">
+        <h2>Bem-vindo à ByteShop!</h2>
+        <p>Explore nossos produtos exclusivos, promoções imperdíveis e lançamentos incríveis. Cadastre-se e descubra um mundo de novidades ao seu alcance!</p>
+      </div>
+
+      <!-- Carrossel de imagens -->
+      <div class="carousel">
+        <div class="slide active">
+          <img src="../images/produto1.jpg" alt="Produto 1">
+          <div class="caption">Promoção Imperdível!</div>
+        </div>
+        <div class="slide">
+          <img src="../images/produto2.jpg" alt="Produto 2">
+          <div class="caption">Mais Vendidos</div>
+        </div>
+        <div class="slide">
+          <img src="../images/produto3.jpg" alt="Produto 3">
+          <div class="caption">Lançamento Exclusivo</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="../js/signin.js"></script>
+  <script>
+    // Carrossel automático
+    const slides = document.querySelectorAll('.slide');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 3000);
+  </script>
+</body>
+</html>

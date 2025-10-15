@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteShop - Home</title>
+  <link rel="stylesheet" href="assets/css/index.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo">
+      <img src="assets/images/logo.png" alt="Logo ByteShop" class="logo-img">
+      <span>ByteShop</span>
+    </div>
+
+    <div class="header-actions">
+      <div id="cart-container" onclick="abrirCarrinho()">
+        <img src="assets/images/cart-icon.png" alt="Carrinho" />
+        <span id="cart-count">0</span>
+      </div>
+      <button id="btn-sair" onclick="sair()">Sair</button>
+    </div>
+  </header>
+
+  <main>
+    <h1 id="logado" style="display:none;">Olá</h1>
+
+    <!-- Banner de boas-vindas -->
+    <section class="banner-home">
+      <div class="banner-texto">
+        <h2>Bem-vindo à ByteShop!</h2>
+        <p>Os melhores periféricos com promoções incríveis esperam por você. Aproveite e compre agora mesmo!</p>
+        <button onclick="document.getElementById('destaque-produtos').scrollIntoView({ behavior: 'smooth' })">
+          Compre Agora
+        </button>
+      </div>
+      <div class="banner-imagem">
+        <img src="assets/images/banner1.jpg" alt="Promoção ByteShop">
+      </div>
+    </section>
+
+    <!-- Produtos em Destaque -->
+    <section class="destaque" id="destaque-produtos">
+      <h2 class="destaque-titulo">✨ Produtos em Destaque</h2>
+      <div id="produtos" class="produtos-container"></div>
+    </section>
+
+    <!-- Seção de Categorias -->
+    <section class="filtro-categorias">
+      <h2 class="destaque-titulo">🛒 Filtrar por Categoria</h2>
+
+      <div class="search-categoria-container">
+        <input type="text" id="searchCategoriaInput" placeholder="🔍 Buscar produtos...">
+      </div>
+
+      <div class="categorias-barra">
+        <button class="categoria-btn" data-categoria="Todos">Todos</button>
+        <button class="categoria-btn" data-categoria="Teclados">Teclados</button>
+        <button class="categoria-btn" data-categoria="Mouses">Mouses</button>
+        <button class="categoria-btn" data-categoria="Fones">Fones</button>
+        <button class="categoria-btn" data-categoria="Monitores">Monitores</button>
+      </div>
+
+      <div id="produtosCategorias" class="produtos-container"></div>
+    </section>
+
+    <!-- Depoimentos / avaliações -->
+    <section class="depoimentos">
+      <h2>O que nossos clientes dizem</h2>
+      <div class="depoimentos-container">
+        <div class="depoimento-card">
+          <p>“Comprei meu teclado aqui, chegou rápido e funciona perfeitamente!”</p>
+          <span>- João S.</span>
+        </div>
+        <div class="depoimento-card">
+          <p>“Melhor loja de periféricos online! Atendimento excelente.”</p>
+          <span>- Maria L.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter / ofertas -->
+    <section class="newsletter">
+      <h2>Receba ofertas exclusivas</h2>
+      <input type="email" placeholder="Seu e-mail aqui">
+      <button>Inscrever-se</button>
+    </section>
+
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>Suporte: byteshopscrum@gmail.com | Telefone: 9999-0000</p>
+    <p>Siga-nos nas redes sociais: Instagram | Facebook | Twitter</p>
+  </footer>
+
+  <script src="assets/js/index.js"></script>
+</body>
+</html>

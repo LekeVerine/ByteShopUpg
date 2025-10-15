@@ -1,0 +1,362 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 20px;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo-img {
+  width: 30px;
+  height: auto;
+}
+
+/* Header actions */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+#cart-container {
+  position: relative;
+  cursor: pointer;
+}
+#cart-container img {
+  width: 30px;
+  height: 30px;
+}
+#cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  display: none;
+  user-select: none;
+}
+#btn-sair {
+  padding: 8px 16px;
+  border: none;
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#btn-sair:hover {
+  background-color: #45a049;
+}
+
+main {
+  padding: 40px 30px;
+  flex: 1;
+}
+
+#logado {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* Banner */
+.banner-home {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #4CAF50;
+  color: white;
+  padding: 40px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  gap: 20px;
+}
+.banner-texto h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+.banner-texto p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.banner-texto button {
+  padding: 10px 20px;
+  background: white;
+  color: #4CAF50;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.banner-texto button:hover {
+  background: #e0e0e0;
+}
+.banner-imagem img {
+  width: 300px;
+  border-radius: 10px;
+}
+
+/* Seção Destaque */
+.destaque {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+.destaque-titulo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Produtos */
+.produtos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.produto-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #fafafa;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.produto-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+.produto-img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  margin-bottom: 12px;
+}
+.produto-nome {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 8px;
+}
+.preco-antigo {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+}
+.preco-promocional {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e53935;
+  margin-bottom: 12px;
+}
+.produto-card button {
+  padding: 8px 16px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.produto-card button:hover {
+  background: #45a049;
+}
+
+/* Categorias */
+.filtro-categorias {
+  margin-top: 40px;
+  padding: 20px 30px;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.search-categoria-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.search-categoria-container input {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 14px;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.search-categoria-container input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80,0.3);
+}
+.categorias-barra {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.categoria-btn {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+.categoria-btn:hover,
+.categoria-btn.active {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+/* Depoimentos */
+.depoimentos {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.depoimentos-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.depoimento-card {
+  background: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.depoimento-card span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Newsletter */
+.newsletter {
+  background: #4CAF50;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+.newsletter input {
+  padding: 10px 15px;
+  width: 250px;
+  border-radius: 20px;
+  border: none;
+  margin-right: 10px;
+  outline: none;
+}
+.newsletter button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: white;
+  color: #4CAF50;
+  font-weight: bold;
+  cursor: pointer;
+}
+.newsletter button:hover {
+  background: #e0e0e0;
+}
+
+/* Rodapé */
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #272262;
+  padding: 20px 0;
+  background: #eee;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .banner-home {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  .banner-imagem img {
+    width: 200px;
+  }
+  .produtos-container {
+    justify-content: center;
+  }
+  .depoimentos-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Fade-in dos produtos */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animação de pulse no contador do carrinho */
+#cart-count.pulse {
+  animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+/* Botão adicionar animado */
+.produto-card button.added {
+  transform: scale(1.1);
+  background-color: #45a049;
+}

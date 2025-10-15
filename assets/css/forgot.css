@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url("../images/bg-signin.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+}
+
+.card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #272262;
+  font-weight: 700;
+  font-size: 28px;
+}
+
+.label-float {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.label-float input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.label-float input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.label-float label {
+  position: absolute;
+  left: 15px;
+  top: 12px;
+  color: #888;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  background: rgba(255,255,255,0.9);
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.label-float input:focus + label,
+.label-float input:valid + label {
+  top: -10px;
+  font-size: 12px;
+  color: #4CAF50;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+#msgError, #msgSuccess {
+  text-align: center;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  display: none;
+}
+
+#msgError {
+  color: #ff0000;
+  background-color: #ffd6d6;
+}
+
+#msgSuccess {
+  color: #00bb00;
+  background-color: #bbffbe;
+}
+
+.card p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #272262;
+}
+
+.card p a {
+  color: #4CAF50;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card p a:hover {
+  color: #272262;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 20px 0;
+}

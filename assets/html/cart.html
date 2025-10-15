@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ByteShop - Carrinho</title>
+  <link rel="stylesheet" href="../css/cart.css">
+</head>
+<body>
+  <header>
+    <h1>Meu Carrinho</h1>
+    <a href="../../index.html" class="btn-voltar">← Voltar para Compras</a>
+  </header>
+
+  <main>
+    <table id="tabela-carrinho">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Imagem</th>
+          <th>Preço Unitário</th>
+          <th>Quantidade</th>
+          <th>Subtotal</th>
+          <th>Remover</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Itens do carrinho via JS -->
+      </tbody>
+    </table>
+
+    <div class="total-container">
+      <span id="total">Total: R$ 0,00</span>
+      <button id="btn-finalizar" class="btn-finalizar">Finalizar Compra</button>
+    </div>
+
+    <button class="btn-clear" id="btn-limpar">Limpar Carrinho</button>
+  </main>
+
+  <script src="../js/cart.js"></script>
+</body>
+</html>

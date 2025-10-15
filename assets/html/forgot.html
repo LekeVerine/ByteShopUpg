@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../css/forgot.css" />
+  <title>Esqueceu a senha?</title>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>Recuperar Senha</h1>
+      <div id="msgError"></div>
+      <div id="msgSuccess"></div>
+
+      <div class="label-float">
+        <input type="email" id="email" placeholder="" required />
+        <label id="labelEmail" for="email">E-mail cadastrado</label>
+      </div>
+
+      <div class="justify-center">
+        <button onclick="enviarEmail()">Enviar</button>
+      </div>
+
+      <div class="justify-center">
+        <hr />
+      </div>
+
+      <p><a href="signin.html">Voltar ao login</a></p>
+    </div>
+  </div>
+
+  <script src="../js/forgot.js"></script>
+</body>
+</html>
