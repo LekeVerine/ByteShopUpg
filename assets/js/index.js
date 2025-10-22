@@ -70,6 +70,17 @@ document.addEventListener("DOMContentLoaded", () => {
   // ----------------------------
   // Função para renderizar produtos com animação
   // ----------------------------
+  function mostrarToast(mensagem) {
+  const toast = document.getElementById("toast");
+  toast.textContent = mensagem;
+  toast.classList.add("show");
+
+  // Esconde depois de 2,5 segundos
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2500);
+}
+
   function mostrarProdutos(listaProdutos, container) {
     container.innerHTML = "";
 
@@ -111,7 +122,8 @@ document.addEventListener("DOMContentLoaded", () => {
         e.target.classList.add("added");
         setTimeout(() => e.target.classList.remove("added"), 300);
 
-        alert(`${produtoSelecionado.nome} adicionado ao carrinho!`);
+        mostrarToast(`${produtoSelecionado.nome} adicionado ao carrinho!`);
+
       });
     });
   }
@@ -182,3 +194,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+ 
+function scrollPara(id) {
+  const elemento = document.getElementById(id);
+  if(elemento) {
+    elemento.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+

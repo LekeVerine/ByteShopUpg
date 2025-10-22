@@ -104,3 +104,80 @@ input[type="number"] {
     width: 100%;
   }
 }
+
+/* Notificação tipo toast */
+.toast {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: bold;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 9999;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+
+/* Toast de confirmação centralizado */
+#confirm-box {
+  background: #fff;
+  color: #333;
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  text-align: center;
+  font-size: 16px;
+  min-width: 250px;
+  max-width: 90%;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+#confirm-box .confirm-buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#confirm-box .confirm-buttons button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+#confirm-box .confirm-buttons #btn-sim {
+  background-color: #4CAF50;
+  color: white;
+}
+#confirm-box .confirm-buttons #btn-sim:hover {
+  background-color: #45a049;
+}
+
+#confirm-box .confirm-buttons #btn-nao {
+  background-color: #e74c3c;
+  color: white;
+}
+#confirm-box .confirm-buttons #btn-nao:hover {
+  background-color: #c0392b;
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translate(-50%, -55%); }
+  100% { opacity: 1; transform: translate(-50%, -50%); }
+}

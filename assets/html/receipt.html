@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comprovante - ByteShop</title>
+  <link rel="stylesheet" href="../css/receipt.css">
+</head>
+<body>
+  <div class="receipt-container">
+    <h1>🧾 Comprovante de Compra</h1>
+    <p class="date" id="data-compra"></p>
+
+    <table id="tabela-comprovante">
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Qtd</th>
+          <th>Preço Unitário</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h2 id="total-compra">Total: R$ 0,00</h2>
+
+    <p class="thanks">Obrigado por comprar na <strong>ByteShop</strong>! 💚</p>
+
+    <div class="actions">
+      <button onclick="window.print()">🖨️ Imprimir</button>
+      <a href="../../index.html" class="btn-voltar">← Voltar à loja</a>
+    </div>
+  </div>
+
+  <script src="../js/receipt.js"></script>
+</body>
+</html>

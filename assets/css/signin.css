@@ -13,13 +13,14 @@ body {
   background-position: center;
   background-attachment: fixed;
   display: flex;
-  justify-content: flex-start; /* Login no canto esquerdo */
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
   min-height: 100vh;
 }
 
 /* Container geral */
 .container {
+  flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -27,6 +28,7 @@ body {
   max-width: 1300px;
   padding: 20px 40px;
   gap: 40px;
+  margin-bottom: 60px; /* espaço pro rodapé */
 }
 
 /* Coluna esquerda: login + suporte */
@@ -55,6 +57,11 @@ body {
   text-align: center;
   font-size: 14px;
   color: #272262;
+}
+
+.support-card i {
+  color: #4CAF50;
+  margin-right: 6px;
 }
 
 /* Coluna direita: carrossel */
@@ -223,23 +230,6 @@ hr {
   margin: 20px 0;
 }
 
-/* Responsividade */
-@media (max-width: 900px) {
-  .container {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .login-column, .info-card {
-    width: 90%;
-  }
-
-  .carousel {
-    height: 200px;
-  }
-}
-
 /* Introdução acima do carrossel */
 .intro {
   text-align: center;
@@ -257,4 +247,81 @@ hr {
   font-size: 16px;
   color: #272262;
   line-height: 1.4;
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .login-column, .info-card {
+    width: 90%;
+  }
+
+  .carousel {
+    height: 200px;
+  }
+}
+
+/* ===== Rodapé ===== */
+.footer {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(6px);
+  text-align: center;
+  padding: 20px 10px;
+  color: #272262;
+  font-size: 14px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  margin-top: auto;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer a {
+  color: #4CAF50;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #272262;
+}
+
+.footer i {
+  margin-right: 6px;
+}
+
+/* Ajuste do link "Esqueceu a senha?" */
+.forgot-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.forgot-link a {
+  color: #4CAF50;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+
+.forgot-link a:hover {
+  color: #272262;
 }

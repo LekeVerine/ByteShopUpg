@@ -63,6 +63,15 @@ header {
   display: none;
   user-select: none;
 }
+#cart-count.pulse {
+  animation: pulse 0.3s ease;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
 #btn-sair {
   padding: 8px 16px;
   border: none;
@@ -140,59 +149,225 @@ main {
 }
 
 /* Produtos */
+/* Grid moderna para produtos */
 .produtos-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 20px 0;
 }
+
+/* Card estilo balão de mensagem / flutuante */
 .produto-card {
-  border: 1px solid #eee;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: #fafafa;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
   width: 220px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
+
+/* Hover do card: levita e aumenta sombra */
 .produto-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.25);
 }
+
+/* Imagem do produto com efeito de zoom */
 .produto-img {
   width: 100%;
   height: 160px;
   object-fit: contain;
-  margin-bottom: 12px;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
 }
+.produto-card:hover .produto-img {
+  transform: scale(1.1);
+}
+
+/* Nome do produto */
 .produto-nome {
   font-size: 18px;
   color: #333;
-  margin-bottom: 8px;
+  font-weight: bold;
+  margin: 12px 0 6px;
 }
+
+/* Preço antigo riscado */
 .preco-antigo {
   font-size: 14px;
   color: #999;
   text-decoration: line-through;
+  margin-bottom: 6px;
 }
+
+/* Preço promocional */
+.preco-promocional {
+  font-size: 16px;
+  font-weight: bold;
+  color: #e53935;
+  margin-bottom: 10px;
+}
+
+/* Botão de adicionar ao carrinho (aparece apenas no hover) */
+.produto-card button {
+  padding: 10px 16px;
+  border: none;
+  background: #4CAF50;
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s, transform 0.4s;
+}
+.produto-card:hover button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Etiqueta de promoção animada */
+.produto-card::before {
+  content: "Promo!";
+  position: absolute;
+  top: 15px;
+  left: -50px;
+  background: #e53935;
+  color: white;
+  padding: 5px 30px;
+  font-size: 12px;
+  font-weight: bold;
+  transform: rotate(-45deg);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+.produto-card:hover::before {
+  transform: rotate(-45deg) translateX(10px);
+}
+
+/* Pequena animação ao adicionar ao carrinho */
+.produto-card button.added {
+  transform: scale(1.15);
+  background-color: #45a049;
+}
+
+/* Imagem do produto */
+.produto-img {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
+}
+
+.produto-card:hover .produto-img {
+  transform: scale(1.05);
+}
+
+/* Nome e preços */
+.produto-nome {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 8px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.preco-antigo {
+  font-size: 14px;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
 .preco-promocional {
   font-size: 16px;
   font-weight: bold;
   color: #e53935;
   margin-bottom: 12px;
+  text-align: center;
 }
+
+/* Botão adicionar */
 .produto-card button {
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: none;
   background: #4CAF50;
   color: white;
-  border-radius: 6px;
+  font-weight: bold;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  width: 100%;
+  transition: background 0.3s, transform 0.3s;
 }
+
 .produto-card button:hover {
   background: #45a049;
+  transform: scale(1.05);
+}
+
+/* Etiqueta de promoção */
+.produto-card .tag-promocao {
+  position: absolute;
+  top: 12px;
+  left: -10px;
+  background: #e53935;
+  color: white;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Animação fade-in sequencial */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .produtos-container {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+  .produto-card {
+    max-width: 200px;
+  }
+  .produto-img {
+    height: 140px;
+  }
+}
+
+
+/* Mini animação voando pro carrinho */
+.fly-to-cart {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.8s cubic-bezier(0.65, -0.05, 0.36, 1.05), opacity 0.8s ease;
+  border-radius: 10px;
 }
 
 /* Categorias */
@@ -246,31 +421,77 @@ main {
 
 /* Depoimentos */
 .depoimentos {
-  background: #fff;
-  padding: 30px;
+  background: #f0f0f5;
+  padding: 50px 20px;
   border-radius: 10px;
-  margin-bottom: 40px;
+  margin: 60px 0; /* maior separação do resto do site */
 }
+
+.depoimentos h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Container com espaçamento maior entre cards */
 .depoimentos-container {
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  flex-wrap: wrap;
-  justify-content: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
+/* Depoimento tipo chat */
 .depoimento-card {
-  background: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 15px 20px;
+  border-radius: 15px;
+  max-width: 70%;
+  position: relative;
+  font-size: 16px;
+  line-height: 1.5;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  animation: fadeInUp 0.5s ease forwards;
 }
+
+/* Mensagens alternadas estilo chat */
+.depoimento-card.user1 {
+  background-color: #4CAF50;
+  color: white;
+  align-self: flex-start;
+  border-bottom-left-radius: 0;
+}
+
+.depoimento-card.user2 {
+  background-color: #e0e0e0;
+  color: #333;
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
 .depoimento-card span {
   display: block;
   margin-top: 10px;
+  font-size: 14px;
   font-weight: bold;
-  color: #333;
+  opacity: 0.8;
 }
+
+/* Animação de fade-in do chat */
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .depoimento-card {
+    max-width: 90%;
+  }
+}
+
+
 
 /* Newsletter */
 .newsletter {
@@ -304,12 +525,29 @@ main {
 
 /* Rodapé */
 footer {
+  background-color: #4CAF50;
+  color: white;
   text-align: center;
+  padding: 25px 0;
   font-size: 14px;
-  color: #272262;
-  padding: 20px 0;
-  background: #eee;
 }
+
+footer p {
+  margin: 6px 0;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 8px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #e0e0e0;
+}
+
 
 /* Responsividade */
 @media (max-width: 768px) {
@@ -330,33 +568,71 @@ footer {
   }
 }
 
-/* Fade-in dos produtos */
-.fade-in {
+/* Notificação tipo toast */
+.toast {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-20px);
+  background: #4CAF50;
+  color: white;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  font-weight: bold;
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
+  pointer-events: none;
+  transition: opacity 0.5s, transform 0.5s;
+  z-index: 9999;
 }
 
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Menu de navegação */
+.menu-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.menu-nav button {
+  background: none;
+  border: 2px solid transparent;
+  padding: 8px 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+.menu-nav button:hover {
+  background-color: #4CAF50;
+  color: white;
+  border-color: #4CAF50;
+}
+
+.menu-nav button:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .menu-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
   }
-}
-
-/* Animação de pulse no contador do carrinho */
-#cart-count.pulse {
-  animation: pulse 0.3s ease;
-}
-
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.3); }
-  100% { transform: scale(1); }
-}
-
-/* Botão adicionar animado */
-.produto-card button.added {
-  transform: scale(1.1);
-  background-color: #45a049;
 }
