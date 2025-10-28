@@ -1,5 +1,8 @@
+# Site-e-comerce
+Projeto: Site de E-comerce (HTML, CSS E JS)
+
 Link do site:  [# signin-signup-jsvanilla](https://lekeverine.github.io/ByteShopUpg/assets/html/signin.html)
-# 📘 Projeto: Site de E-comerce (HTML, CSS E JS)
+
 
 🎯 Objetivo
 Criar um site que:
